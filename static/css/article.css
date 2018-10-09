@@ -1,0 +1,55 @@
+/*article*/
+#show_article_title {
+    font-size: 150%;
+    text-align: center;
+    margin: 0px;
+}
+
+#show_article_info {
+    text-align: center;
+    font-family: "Microsoft YaHei" ! important;
+    margin: 0px;
+}
+
+#show_article {
+    text-align: left;
+    text-indent: 2em;
+    font-family: "Microsoft YaHei" ! important;
+    margin-bottom: 50px;
+
+}
+
+/*commitcomment*/
+#commit_mark {
+    font-size: 120%;
+    padding-top: 20px;
+    border-top: 1px solid #000000;
+}
+
+#commit_right {
+    text-align: right;
+    margin-bottom: 40px;
+}
+
+/*showcomment*/
+
+*.comment {
+    width: 500px;
+    padding-top: 5px;
+    border-top: 1px dashed #000000;
+    margin-bottom: 5px;
+
+}
+
+*.blank {
+    line-height: 20px;
+}
+
+*.newline {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#show_commit{
+    margin-bottom: 50px;
+}
