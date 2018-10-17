@@ -20,5 +20,5 @@ def load_options(args=None):
         parse_config_file(options.config_file)
 
 def connect_db():
-    logger.info("mongodb_uri is: {0}".format(options.mongodb_uri))
+    logger.info("mongodb_uri is: {}".format(options.mongodb_uri))
     return motor.MotorClient(options.mongodb_uri)

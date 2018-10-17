@@ -5,6 +5,8 @@ import os
 import tornado.web
 from tornado.options import define, options
 
+from my_blog.url import urls
+
 define("port", default=8000, help="run on the given port", type=int)
 
 
@@ -16,9 +18,7 @@ class IndexHandler(tornado.web.RequestHandler):
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     app = tornado.web.Application(
-        handlers=[
-            (r"/", IndexHandler)
-        ],
+        handlers=urls,
         debug=True,
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
         static_path=os.path.join(os.path.dirname(__file__), 'static'),
