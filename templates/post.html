@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
+    <link rel="stylesheet" type="text/css" href="/static/css/article.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/editormd.min.css"/>
+    <link rel="stylesheet" href="/static/css/editormd.min.css"/>
 <body>
+<div id="layout">
+    <header>
+        <h1>POST</h1>
+    </header>
+    <div id="test-editormd">
+        <textarea style="display:none;"></textarea>
+    </div>
+</div>
+<script type="text/javascript" src="/static/jquery/jquery-3.2.1.min.js"></script>
+<script src="/static/js/editormd.min.js"></script>
+<script type="text/javascript">
+    var testEditor;
 
+    $(function () {
+        testEditor = editormd("test-editormd", {
+            width: "90%",
+            height: "500px",
+            syncScrolling: "single",
+            path: "/static/lib/"
+        });
+    });
+</script>
 </body>
 </html>
