@@ -10,5 +10,5 @@ class IndexHandler(BaseHandler):
 
 
 class PostArticleHandler(BaseHandler):
-    def post(self):
+    def get(self):
         self.render('post.html')
