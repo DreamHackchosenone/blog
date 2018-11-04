@@ -4,6 +4,6 @@
 from my_blog.handler.main.views import IndexHandler, PostArticleHandler
 
 urls = [
-    [r'/', IndexHandler],
-    [r'/post', PostArticleHandler]
+    [r'/blog/', IndexHandler],
+    [r'/blog/post', PostArticleHandler]
 ]

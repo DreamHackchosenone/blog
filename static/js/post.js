@@ -2,10 +2,8 @@ $(document).ready(function () {
     $("#post").click(function () {
         $.ajax({
             url: "/blog/post",
-            type: 'get',
-            data: {
-                "phone_number": "zhonghao"
-            },
+            type: 'post',
+            data: $(".editormd-html-textarea").attr("name", "html"),
             datatype: "json",
             contentType: 'application/json; charset=UTF-8',
             async: true,
