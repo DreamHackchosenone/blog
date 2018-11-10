@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>时光不负赶路人</title>
-    <!--<link rel="stylesheet" type="text/css" href="/static/css/article.css"/>-->
-    <!--<link rel="stylesheet" type="text/css" href="/static/css/editormd.min.css"/>-->
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/editormd.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editormd.min.css"/>
 <body>
 <div id="layout">
     <header>
         <h1>POST</h1>
     </header>
     <div id="editormd">
-        <textarea style="display:none;">
-        </textarea>
+        <textarea style="display:none;"></textarea>
+        <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+        <textarea class="editormd-html-textarea" name="html"></textarea>
     </div>
+
 </div>
-<script type="text/javascript" src="/static/jquery/jquery-3.2.1.min.js"></script>
-<script src="/static/js/editormd.min.js"></script>
+<button id="post">提交</button>
+<script src="jquery/jquery-3.2.1.min.js"></script>
+<script src="js/editormd.min.js"></script>
+<script src="js/post.js"></script>
 <script type="text/javascript">
     var Editor;
     $(function () {
@@ -27,7 +29,7 @@
             height: 640,
             syncScrolling: "single",
             emoji: true,
-            path: "/static/editormd/lib/",
+            path: "editormd/lib/",
             /*
                 // 开启上传图片功能
                 imageUpload : true,
@@ -37,7 +39,7 @@
             saveHTMLToTextarea: true,    // 保存 HTML 到 Textarea
             searchReplace: true,
             flowChart: true,             // 开启流程图支持，默认关闭
-            sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
+            sequenceDiagram: true       // 开启时序/序列图支持，默认关闭,
         });
 
     });
