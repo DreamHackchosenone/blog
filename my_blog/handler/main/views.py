@@ -13,6 +13,6 @@ class IndexHandler(BaseHandler):
 
 class PostArticleHandler(BaseHandler):
     def post(self):
-        data = json.loads(self.request.body)
-        print(data)
+        print(self.request.body)
+        #data = json.loads(self.request.body)
         self.render('post.html')
