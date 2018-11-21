@@ -4,7 +4,6 @@
 import os
 import tornado.web
 from tornado.options import define, options
-
 from my_blog.url import urls
 
 define("port", default=20302, help="run on the given port", type=int)
