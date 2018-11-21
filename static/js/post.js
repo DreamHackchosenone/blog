@@ -20,7 +20,6 @@ $(document).ready(function () {
 
     
     $("#post").click(function () {
-	    alert(Editor.getMarkdown())
         $.ajax({
             url: "/blog/post",
             type: 'post',
