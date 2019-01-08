@@ -13,9 +13,12 @@ class IndexHandler(BaseHandler):
 
 class PostArticleHandler(BaseHandler):
     def post(self):
-        post = self.request.body
+        data = json.loads(self.request.body)
+        title = data.get('title')
+        article = data.get('article')
         doc = {
-            'article': post,
+            'title': title,
+            'article': article,
             'post_date': datetime.datetime.now(),
         }
         self.db['post'].insert_one(doc)

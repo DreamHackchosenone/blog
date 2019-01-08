@@ -23,7 +23,11 @@ $(document).ready(function () {
         $.ajax({
             url: "/blog/post",
             type: 'post',
-            data:Editor.getMarkdown(),
+            //data:Editor.getMarkdown(),
+            data: JSON.stringify(
+                  {"title": $('#title').val(),
+                  "article": Editor.getMarkdown()
+                  }),
             contentType: 'application/json; charset=UTF-8',
             async: true,
         })
