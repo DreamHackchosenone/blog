@@ -6,11 +6,6 @@ import datetime
 from my_blog.handler.base import BaseHandler
 
 
-class IndexHandler(BaseHandler):
-    def get(self):
-        self.render('index.html')
-
-
 class PostArticleHandler(BaseHandler):
     def post(self):
         data = json.loads(self.request.body)
@@ -23,3 +18,13 @@ class PostArticleHandler(BaseHandler):
         }
         self.db['post'].insert_one(doc)
         self.write_json({'ret': 0, 'msg': 'ok'})
+
+
+class ShowArticleHandler(BaseHandler):
+    def get(self):
+        data = json.loads(self.request.body)
+        articl_id = data.get('article_id')
+        post = self.db['post'].find_one({'articl_id':articl_id})
+        if not post:
+            self.write_json({'ret': -1, 'msg': 'post not exist'})
+        self.write_json({'ret': 0, 'msg': post})
