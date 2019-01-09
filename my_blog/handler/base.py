@@ -3,13 +3,14 @@
 # @Time    : 2018/10/10 22:23
 import json
 from tornado.web import RequestHandler
-
+import pymongo
 
 class BaseHandler(RequestHandler):
 
     @property
-    def _db(self):
-        return self.application.settings['mongo_client']['q2-ums']
+    def db(self):
+        client = pymongo.MongoClient('localhost', 27017)
+        return client['blog']
 
     def write_json(self, ret={}):
         self.set_header("Content-Type", "application/json")

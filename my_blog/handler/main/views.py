@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2018/10/17 21:22
+import json
+import datetime
 from my_blog.handler.base import BaseHandler
 
 
@@ -10,5 +12,14 @@ class IndexHandler(BaseHandler):
 
 
 class PostArticleHandler(BaseHandler):
-    def get(self):
-        self.render('post.html')
+    def post(self):
+        data = json.loads(self.request.body)
+        title = data.get('title')
+        article = data.get('article')
+        doc = {
+            'title': title,
+            'article': article,
+            'post_date': datetime.datetime.now(),
+        }
+        self.db['post'].insert_one(doc)
+        self.write_json({'ret': 0, 'msg': 'ok'})

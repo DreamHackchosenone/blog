@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2018/10/9 22:23
+
 import os
 import tornado.web
 from tornado.options import define, options
-
 from my_blog.url import urls
 
-define("port", default=8000, help="run on the given port", type=int)
+define("port", default=20302, help="run on the given port", type=int)
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
@@ -17,6 +17,14 @@ if __name__ == "__main__":
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
         static_path=os.path.join(os.path.dirname(__file__), 'static'),
     )
-    http_server = tornado.httpserver.HTTPServer(app)
-    http_server.listen(options.port)
-    tornado.ioloop.IOLoop.instance().start()
+
+
+    try:
+        print('Server is running at http://{host}:{port}'.format(host='127.0.0.1', port=20302))
+        #app.listen(options.port, xheaders=True, max_body_size=1024 * 1024)
+        http_server = tornado.httpserver.HTTPServer(app)
+        http_server.listen(options.port)
+        tornado.ioloop.IOLoop.instance().start()
+    except KeyboardInterrupt:
+        tornado.ioloop.IOLoop.instance().stop()
+
