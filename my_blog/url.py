@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2018/10/17 21:25
-from my_blog.handler.main.views import IndexHandler, PostArticleHandler
+from my_blog.handler.main.views import PostArticleHandler,GetArticleListHandler
 
 urls = [
-    [r'/blog/', IndexHandler],
-    [r'/blog/post', PostArticleHandler]
+    [r'/blog/post', PostArticleHandler],
+    [r'/blog/article', GetArticleListHandler]
 ]
