@@ -20,7 +20,7 @@ class PostArticleHandler(BaseHandler):
         self.write_json({'ret': 0, 'msg': 'ok'})
 
 
-class ShowArticleHandler(BaseHandler):
+class GetArticleListHandler(BaseHandler):
     def get(self):
         data = json.loads(self.request.body)
         articl_id = data.get('article_id')
