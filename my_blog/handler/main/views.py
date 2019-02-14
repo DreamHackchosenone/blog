@@ -28,3 +28,14 @@ class GetArticleListHandler(BaseHandler):
         if not post:
             self.write_json({'ret': -1, 'msg': 'post not exist'})
         self.write_json({'ret': 0, 'msg': post})
+
+
+class ShowArticleDetailHandler(BaseHandler):
+    def get(self):
+        data = json.loads(self.request.body)
+        articl_id = data.get('article_id')
+        post = self.db['post'].find_one({'articl_id':articl_id})
+        if not post:
+            self.write_json({'ret': -1, 'msg': 'post not exist'})
+        self.write_json({'ret': 0, 'msg': post})
+
