@@ -1,4 +1,10 @@
-﻿//获取窗口滚动条高度
+﻿function getArticleList() {
+  alert('list')
+  ///传回来的json解析
+}
+
+
+//获取窗口滚动条高度
 function getScrollTop() {
     var scrollTop = 0;
     if (document.documentElement && document.documentElement.scrollTop) {
