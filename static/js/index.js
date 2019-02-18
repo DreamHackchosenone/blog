@@ -1,7 +1,20 @@
-﻿function getArticleList() {
+﻿$(document).ready(function () {
   alert('list')
   ///传回来的json解析
-}
+  $.ajax({
+    url: '/blog/',
+    type: 'GET',
+    datatype: 'json',
+    contentType:"application/json; charset=UTF-8",
+    async: true,
+    success: function(data){
+      alert('success');
+    },
+    error: function(){
+      alert('error');
+    },
+  })
+})
 
 
 //获取窗口滚动条高度

@@ -22,11 +22,10 @@ class PostArticleHandler(BaseHandler):
 
 class GetArticleListHandler(BaseHandler):
     def get(self):
-        data = json.loads(self.request.body)
-        articl_id = data.get('article_id')
-        post = self.db['post'].find_one({'articl_id':articl_id})
-        if not post:
-            self.write_json({'ret': -1, 'msg': 'post not exist'})
+        print('#')
+        post = self.db['post'].find()
+        print(post)
+        print('*'*100)
         self.write_json({'ret': 0, 'msg': post})
 
 
