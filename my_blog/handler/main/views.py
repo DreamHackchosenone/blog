@@ -22,6 +22,7 @@ class PostArticleHandler(BaseHandler):
 
 class GetArticleListHandler(BaseHandler):
     def get(self):
+        # todo: 游标转为json格式
         print('#')
         post = self.db['post'].find()
         print(post)
