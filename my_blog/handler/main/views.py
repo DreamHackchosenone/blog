@@ -4,7 +4,7 @@
 import json
 import datetime
 from my_blog.handler.base import BaseHandler
-
+from bson import json_util
 
 class PostArticleHandler(BaseHandler):
     def post(self):
@@ -21,13 +21,15 @@ class PostArticleHandler(BaseHandler):
 
 
 class GetArticleListHandler(BaseHandler):
-    def get(self):
+    async def get(self):
         # todo: 游标转为json格式
-        print('#')
-        post = self.db['post'].find()
-        print(post)
-        print('*'*100)
-        self.write_json({'ret': 0, 'msg': post})
+        cursor = self.db['post'].find()
+        doc_list = []
+        async for doc in cursor:
+            # objectid无法序列化，需要导入bson
+            doc_list.append(json_util.dumps(doc))
+        print (doc_list)
+        self.write_json({'ret': 0, 'msg': 'OK', 'data': doc_list})
 
 
 class ShowArticleDetailHandler(BaseHandler):
