@@ -3,13 +3,13 @@
 # @Time    : 2018/10/10 22:23
 import json
 from tornado.web import RequestHandler
-import pymongo
+import motor
 
 class BaseHandler(RequestHandler):
 
     @property
     def db(self):
-        client = pymongo.MongoClient('localhost', 27017)
+        client = motor.motor_tornado.MotorClient('localhost', 27017)
         return client['blog']
 
     def write_json(self, ret={}):
