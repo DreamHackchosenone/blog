@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2018/10/17 21:22
 import json
+from bson import json_util
 import datetime
 from my_blog.handler.base import BaseHandler
 from bson import json_util
@@ -27,8 +28,8 @@ class GetArticleListHandler(BaseHandler):
         doc_list = []
         async for doc in cursor:
             # objectid无法序列化，需要导入bson
-            doc_list.append(json_util.dumps(doc))
-        print (doc_list)
+            #doc_list.append(json_util.dumps(doc))
+            doc_list.append(json.loads(json_util.dumps(doc)))
         self.write_json({'ret': 0, 'msg': 'OK', 'data': doc_list})
 
 

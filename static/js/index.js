@@ -9,12 +9,9 @@
     success: function(data){
       article_list = data['data']
       console.log(article_list)
-      alert(article_list[0])
-      alert(article_list[0]["post_date"])
       for (var i = 0; i < article_list.length; i++) {
         doc = article_list[i]
-        //console.log(doc)
-        //alert(doc)
+        alert(doc.post_date['$date'])
         //alert(doc["post_date"])
         addArticleDom(doc['_id'], doc['title'], doc['post_date'])
         }
