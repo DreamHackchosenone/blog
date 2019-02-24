@@ -1,4 +1,30 @@
-﻿//获取窗口滚动条高度
+﻿$(document).ready(function () {
+  //todo json解析问题
+  $.ajax({
+    url: '/blog/',
+    type: 'GET',
+    datatype: 'json',
+    contentType:"application/json; charset=UTF-8",
+    async: true,
+    success: function(data){
+      article_list = data['data']
+      console.log(article_list)
+      for (var i = 0; i < article_list.length; i++) {
+        doc = article_list[i]
+        addArticleDom(doc['_id'], doc['title'], doc['post_date'])
+        }
+    },
+    error: function(){
+      alert('error');
+    },
+  })
+})
+
+function addArticleDom(ObjectID, title, time) {
+  $("#article_list").append("<tr><td><a href='http://139.199.62.58.20301/detail/"+ObjectID+"class='title'>"+title+"</a></td><td><style='float:right'><time>"+time+"</time></td></tr>")
+}
+
+//获取窗口滚动条高度
 function getScrollTop() {
     var scrollTop = 0;
     if (document.documentElement && document.documentElement.scrollTop) {

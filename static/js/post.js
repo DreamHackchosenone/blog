@@ -30,12 +30,12 @@ $(document).ready(function () {
                   }),
             contentType: 'application/json; charset=UTF-8',
             async: true,
+            success: function (data, status) {
+                alert(data['msg']);
+            },
+            error: function (statusText) {
+                alert('ajax 失败');
+            }
         })
-            .success(function (data, status) {
-                alert(data['msg'])
-            })
-            .fail(function (statusText) {
-                alert('ajax 失败')
-            })
     })
 })
