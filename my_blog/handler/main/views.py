@@ -37,10 +37,10 @@ class GetArticleListHandler(BaseHandler):
 class ShowArticleDetailHandler(BaseHandler):
     async def get(self, articl_id):
         try:
-            post = await self.db['post'].find_one({'_id':ObjectId(articl_id)})
-            if not post:
-                self.write_json({'ret': -1, 'msg': 'post not exist'})
-            self.write_json({'ret': 0, 'msg': json_util.dumps(post)})
+            doc = await self.db['post'].find_one({'_id':ObjectId(articl_id)})
+            if not doc:
+                self.write_json({'ret': -1, 'msg': 'post is not exist'})
+            self.write_json({'ret': 0, 'msg': json_util.dumps(doc)})
         except bson.errors.InvalidId:
             self.write_json({'ret': -1, 'msg': '文章Id错误'})
         except:
