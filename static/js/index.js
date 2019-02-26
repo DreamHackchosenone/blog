@@ -11,7 +11,7 @@
       console.log(article_list)
       for (var i = 0; i < article_list.length; i++) {
         doc = article_list[i]
-        addArticleDom(doc['_id'], doc['title'], doc['post_date'])
+        addArticleDom(doc['_id']['$oid'], doc['title'], doc['post_date'])
         }
     },
     error: function(){
@@ -21,7 +21,7 @@
 })
 
 function addArticleDom(ObjectID, title, time) {
-  $("#article_list").append("<tr><td><a href='http://139.199.62.58.20301/detail/"+ObjectID+"class='title'>"+title+"</a></td><td><style='float:right'><time>"+time+"</time></td></tr>")
+  $("#article_list").append("<tr><td><a href='http://139.199.62.58.20301/blog/article/"+ObjectID+"' class='title'>"+title+"</a></td><td><style='float:right'><time>"+time+"</time></td></tr>")
 }
 
 //获取窗口滚动条高度
