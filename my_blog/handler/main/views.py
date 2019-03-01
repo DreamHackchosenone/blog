@@ -40,7 +40,8 @@ class ShowArticleDetailHandler(BaseHandler):
             doc = await self.db['post'].find_one({'_id':ObjectId(articl_id)})
             if not doc:
                 self.write_json({'ret': -1, 'msg': 'post is not exist'})
-            self.write_json({'ret': 0, 'msg': json_util.dumps(doc)})
+            #self.write_json({'ret': 0, 'msg': json_util.dumps(doc)})
+            self.render('article_detail.html', content='1231231')
         except bson.errors.InvalidId:
             self.write_json({'ret': -1, 'msg': '文章Id错误'})
         except:
