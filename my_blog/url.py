@@ -6,5 +6,5 @@ from my_blog.handler.main.views import GetArticleListHandler, PostArticleHandler
 urls = [
     [r'/blog/', GetArticleListHandler],
     [r'/blog/post', PostArticleHandler],
-    [r'/blog/article', ShowArticleDetailHandler]
+    [r'/blog/article/(.*)', ShowArticleDetailHandler]
 ]

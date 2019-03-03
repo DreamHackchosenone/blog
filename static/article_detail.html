@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>aaaaaa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editormd.preview.min.css">
+</head>
+<body>
+
+<h1>article_detail</h1>
+<h1>{{ content }}</h1>
+<p id="test-editormd-view">
+        <textarea style="display:none;"
+        name="test-editormd-markdown-doc">{{content}}</textarea>               
+</p>
+
+<div id="test-editormd-view">
+    <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
+</div>
+<script src="jquery/jquery-3.2.1.min.js"></script>
+<script src="js/editormd/lib/prettify.min.js"></script>
+<script src="js/editormd/lib/raphael.min.js"></script>
+<script src="js/editormd/lib/underscore.min.js"></script>
+<script src="js/editormd/lib/sequence-diagram.min.js"></script>
+<script src="js/editormd/lib/flowchart.min.js"></script>
+<script src="js/editormd/lib/jquery.flowchart.min.js"></script>
+<script src="js/editormd.min.js"></script>
+<script src="js/editormd/lib/marked.min.js"></script>
+<script src="js/detail.js"></script>
+
+<script type="text/javascript">
+$(function() {
+    alert('fuck')
+    var testEditormdView,
+    $.get("test.md", function(markdown) {
+    testEditormdView = editormd.markdownToHTML("test-editormd-view", {
+    markdown        : markdown ,//+ "\r\n" + $("#append-test").text(),
+    htmlDecode      : "style,script,iframe",  // you can filter tags decode
+    tocm            : true,    // Using [TOCM]
+    emoji           : true,
+        });
+  });
+  });
+ </script>
+
+</body>
+</html>

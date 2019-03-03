@@ -14,7 +14,7 @@ if __name__ == "__main__":
     app = tornado.web.Application(
         handlers=urls,
         debug=True,
-        template_path=os.path.join(os.path.dirname(__file__), "templates"),
+        template_path=os.path.join(os.path.dirname(__file__), 'templates'),
         static_path=os.path.join(os.path.dirname(__file__), 'static'),
     )
 
