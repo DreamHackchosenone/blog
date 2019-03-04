@@ -32,6 +32,7 @@ $(document).ready(function () {
             async: true,
             success: function (data, status) {
                 alert(data['msg']);
+                location.href = '../index.html';
             },
             error: function (statusText) {
                 alert('ajax 失败');
