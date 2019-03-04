@@ -41,7 +41,7 @@ class ShowArticleDetailHandler(BaseHandler):
             if not doc:
                 self.write_json({'ret': -1, 'msg': 'post is not exist'})
             #self.write_json({'ret': 0, 'msg': json_util.dumps(doc)})
-            self.render('article_detail.html', content=doc['article'])
+            self.render('article_detail.html', title=doc['title'], content=doc['article'])
         except bson.errors.InvalidId:
             self.write_json({'ret': -1, 'msg': 'wrong article Id'})
         except:
