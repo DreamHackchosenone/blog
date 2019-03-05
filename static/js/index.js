@@ -11,7 +11,9 @@
       console.log(article_list)
       for (var i = 0; i < article_list.length; i++) {
         doc = article_list[i]
-        addArticleDom(doc['_id']['$oid'], doc['title'], doc['post_date'])
+        var post_stamp = new Date(1551752248396)
+        post_date = post_stamp.toLocaleString()
+        addArticleDom(doc['_id']['$oid'], doc['title'], post_date)
         }
     },
     error: function(){
@@ -19,6 +21,11 @@
     },
   })
 })
+
+Date.prototype.toLocaleString = function() {
+          return this.getFullYear() + "/" + (this.getMonth() + 1) + "/" +
+          this.getDate() + "/ " 
+};
 
 function addArticleDom(ObjectID, title, time) {
   $("#article_list").append("<tr><td><a href='http://139.199.62.58:20301/blog/article/"+ObjectID+"' class='title'>"+title+"</a></td><td><style='float:right'><time>"+time+"</time></td></tr>")
