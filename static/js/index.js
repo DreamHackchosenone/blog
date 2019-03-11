@@ -11,7 +11,7 @@
       console.log(article_list)
       for (var i = 0; i < article_list.length; i++) {
         doc = article_list[i]
-        var post_stamp = new Date(1551752248396)
+        var post_stamp = new Date(doc['post_date']['$date'])
         post_date = post_stamp.toLocaleString()
         addArticleDom(doc['_id']['$oid'], doc['title'], post_date)
         }
@@ -24,7 +24,7 @@
 
 Date.prototype.toLocaleString = function() {
           return this.getFullYear() + "/" + (this.getMonth() + 1) + "/" +
-          this.getDate() + "/ " 
+          this.getDate() 
 };
 
 function addArticleDom(ObjectID, title, time) {
