@@ -27,6 +27,7 @@ class GetArticleListHandler(BaseHandler):
     async def get(self):
         # todo: 游标转为json格式
         cursor = self.db['post'].find()
+        cursor.sort('post_date', -1)
         doc_list = []
         async for doc in cursor:
             # objectid无法序列化，需要导入bson
