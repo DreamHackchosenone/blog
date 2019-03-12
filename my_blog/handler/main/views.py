@@ -12,6 +12,9 @@ from bson.objectid import ObjectId
 class PostArticleHandler(BaseHandler):
     def post(self):
         data = json.loads(self.request.body)
+        passwd = data.get('passwd')
+        if passwd != 'dreamhack':
+            self.write_json({'ret': -1, 'msg': 'fuck you'})
         title = data.get('title')
         article = data.get('article')
         doc = {

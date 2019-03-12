@@ -26,7 +26,8 @@ $(document).ready(function () {
             //data:Editor.getMarkdown(),
             data: JSON.stringify(
                   {"title": $('#title').val(),
-                  "article": Editor.getMarkdown()
+                  "article": Editor.getMarkdown(),
+                  "passwd": $('#passwd').val()
                   }),
             contentType: 'application/json; charset=UTF-8',
             async: true,
