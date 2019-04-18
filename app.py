@@ -6,6 +6,7 @@ import os
 import tornado.web
 from tornado.options import define, options
 from my_blog.url import urls
+import logging
 
 define("port", default=20302, help="run on the given port", type=int)
 
@@ -20,7 +21,7 @@ if __name__ == "__main__":
 
 
     try:
-        print('Server is running at http://{host}:{port}'.format(host='127.0.0.1', port=20302))
+        logging.info('Server is running at http://{host}:{port}'.format(host='127.0.0.1', port=20302))
         #app.listen(options.port, xheaders=True, max_body_size=1024 * 1024)
         http_server = tornado.httpserver.HTTPServer(app)
         http_server.listen(options.port)

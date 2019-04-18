@@ -8,12 +8,14 @@ import datetime
 from my_blog.handler.base import BaseHandler
 from bson import json_util, errors
 from bson.objectid import ObjectId
+import logging
 
 class PostArticleHandler(BaseHandler):
     def post(self):
         data = json.loads(self.request.body)
         passwd = data.get('passwd')
         if passwd != 'dreamhack':
+            loggin.warning('this {} guy want post article'.format(self.request.remote_ip))
             self.write_json({'ret': -1, 'msg': 'fuck you'})
         title = data.get('title')
         article = data.get('article')
@@ -41,6 +43,7 @@ class GetArticleListHandler(BaseHandler):
 class ShowArticleDetailHandler(BaseHandler):
     async def get(self, articl_id):
         try:
+            # TODO对每篇文章增加查看次数的字段
             doc = await self.db['post'].find_one({'_id':ObjectId(articl_id)})
             if not doc:
                 self.write_json({'ret': -1, 'msg': 'post is not exist'})
