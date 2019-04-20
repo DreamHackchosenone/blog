@@ -8,6 +8,13 @@
 * 数据库：Mongo 4.0.4
 * 框架：tornado 4.5.3
 * 选择tornado作为后端框架是因为自己对这个框架比较熟悉，4.*也是tornado开发历时最长，接近四年的版本，也是我在开始搭建此博客时最稳定的版本，现在最新的是5.0.1，但偶然发现github上tornado最新issue有一个内存泄露的问题，估计官方会很快修复这个bug，关于这个问题后面找时间跟一下，配合tornado的mongo数据驱动选择了motor，是一个mongo的异步数据库驱动，因为文档详细并且是pymongo官方发布的主流异步库，后端加了一个nginx配合前后分离，tornado提供API。
+## 博客展示
+* blog首页
+![image](https://pic3.zhimg.com/80/v2-76f1c6354a9923b8e4dc932b773cfff4_hd.png)
+* 文章显示页
+![image](https://pic2.zhimg.com/80/v2-081722969f127c11998bfa6020885b3d_hd.png)
+* 发表文章页
+![image](https://pic1.zhimg.com/80/v2-8c906764a707e21b9471c69d52b289fd_hd.png)
 ## TODO 
 * 博客的搜索功能
 * 编辑文章
