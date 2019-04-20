@@ -43,11 +43,13 @@ class GetArticleListHandler(BaseHandler):
 class ShowArticleDetailHandler(BaseHandler):
     async def get(self, articl_id):
         try:
-            # TODO对每篇文章增加查看次数的字段
-            doc = await self.db['post'].find_one({'_id':ObjectId(articl_id)})
+            doc = await self.db['post'].find_one_and_update(
+                    {'_id':ObjectId(articl_id)},
+                    {'$inc':{'viewed_counts': 1}}
+                )
+            print(doc['title'])
             if not doc:
                 self.write_json({'ret': -1, 'msg': 'post is not exist'})
-            #self.write_json({'ret': 0, 'msg': json_util.dumps(doc)})
             self.render('article_detail.html', title=doc['title'], content=doc['article'])
         except bson.errors.InvalidId:
             self.write_json({'ret': -1, 'msg': 'wrong article Id'})
