@@ -15,7 +15,7 @@ class PostArticleHandler(BaseHandler):
         data = json.loads(self.request.body)
         passwd = data.get('passwd')
         if passwd != 'dreamhack':
-            loggin.warning('this {} guy want post article'.format(self.request.remote_ip))
+            logging.warning('this {} guy want post article'.format(self.request.remote_ip))
             self.write_json({'ret': -1, 'msg': 'fuck you'})
         title = data.get('title')
         article = data.get('article')
