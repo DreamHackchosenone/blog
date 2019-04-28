@@ -1,6 +1,4 @@
-motor      2.0.0  
-pip        18.1   
-pymongo    3.7.2  
-setuptools 40.5.0 
-tornado    4.5.3  
-wheel      0.32.2 
+certifi==2019.3.9
+motor==2.0.0
+pymongo==3.8.0
+tornado==4.5.3
